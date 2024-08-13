@@ -13,8 +13,10 @@
     --chef-title:#212529;
     --contact-text:#212529;
     --nav-shadow:rgba(149, 157, 165, 0.2) 0px 8px 24px 0px;
+    --hover-color:#000000;
 
 }
+
 h1,h2,h3,h4,h5,h6{
     font-family: "Inter", sans-serif;
 }
@@ -53,9 +55,6 @@ nav{
     
     color: #7F7F90;
 }
-.nav-content ul li a:active{
-    color: #000000;
-}
 .nav-content ul li{
     text-transform: capitalize;
     font-size: 17px;
@@ -66,33 +65,44 @@ nav{
     position: relative;
     overflow: hidden;
 }
-
+:target{
+    position: relative;
+}
+:target::before{
+    content: "";
+    position: absolute;
+    top: 100%;
+    width: 100%;
+    height: 2px;
+    background-color: var(--main-color);
+}
 .nav-content ul li a::before {
     content: "";
     position: absolute;
-    top: 90%;
-    right: 100%;
-    width: 60px;
+    top: 100%;
+    width: 0;
     height: 2px;
     background-color: var(--main-color);
     opacity: 0;
-    transition: right 0.5s ease-out, opacity 0.5s ease;
+    transition: right 0.5s ease-in;
 }
 
 .nav-content ul li a:hover {
-    color: #000000;
+    color: var(--hover-color);
 }
 .nav-content ul li a:hover::before {
-    right: 0;
+    width: 100%;
     opacity: 1;
 }
 .Mealify{
     color: var(--nav-logo);
     font-size: 30px;
     font-weight: 700;  
+    position: relative;
 }
 .Mealify::after{
     content: ".";
+    position: absolute;
     color: var(--main-color);
 }
 /* end of navbar style */
@@ -453,7 +463,7 @@ justify-content: space-between;
   }
   /* footer style */
 footer{
-    background-image: url(../images//textured-metal-background.jpg);
+    background-image: linear-gradient(#0009,#0009),url(../images//textured-metal-background.jpg);
     background-size: 100% 100%;
     background-position: cover;
     color: #fff;
@@ -555,6 +565,7 @@ footer h3{
     --nav-logo:#fff;
     --chef-title:#fff;
     --contact-text:#fff;
+    --hover-color:#fff;
     --nav-shadow:0;
     
 }
@@ -593,3 +604,4 @@ body:has(.dark-mode:checked) .chef-img::after{
   .dark-mode:checked ~ .sun {
     opacity: 1;
   }
+
