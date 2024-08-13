@@ -65,6 +65,7 @@ nav{
     position: relative;
     overflow: hidden;
 }
+
 :target{
     position: relative;
 }
@@ -84,7 +85,7 @@ nav{
     height: 2px;
     background-color: var(--main-color);
     opacity: 0;
-    transition: right 0.5s ease-in;
+    transition: width 0.5s ease-in;
 }
 
 .nav-content ul li a:hover {
@@ -171,6 +172,7 @@ header{
     margin: 0 5px;
     position: relative;
 }
+
 .header-img:hover{
     animation-name: vibration;
     animation-duration: 1s;
